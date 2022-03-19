@@ -8,5 +8,6 @@ import java.util.List;
  */
 public interface UserMapper {
     List<User> getUserList();
-    int addUser(User user);
+    Integer addUser(User user);
+    Integer zhaoUser(User user);
 }

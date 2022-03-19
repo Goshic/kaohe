@@ -17,24 +17,19 @@ public class UserController {
 
     @PostMapping("/login")
     public Result<?> login(@RequestBody User user){
-        List<User> userList=usermapper.getUserList();
-        for (User res : userList) {
-            if (res.getName().equals(user.getName()) && res.getPwd().equals(user.getPwd())){
-                return Result.success();
-            }
+        if(usermapper.zhaoUser(user)!=null){
+            return Result.success();
         }
         return Result.error("-1","用户名或密码错误");
     }
     @PostMapping("/register")
     public Result<?> addUser(@RequestBody User user){
-        List<User> userList=usermapper.getUserList();
-        for (User res : userList) {
-            if (res.getName().equals(user.getName())){
+            if (usermapper.zhaoUser(user)!=null){
                 return Result.error("-1","用户名已存在");
             }
-        }
         usermapper.addUser(user);
         sqlSession.commit();
         return Result.success();
     }
+
 }

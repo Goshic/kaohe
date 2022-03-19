@@ -9,4 +9,7 @@
     <insert id="addUser" parameterType="com.study.pojo.User">
         insert into mybaits.user(name,pwd) values(#{name},#{pwd})
     </insert>
+    <select id="zhaoUser" resultType="Integer">
+        select * from mybaits.user where name=#{name} and pwd=#{pwd}
+    </select>
 </mapper>

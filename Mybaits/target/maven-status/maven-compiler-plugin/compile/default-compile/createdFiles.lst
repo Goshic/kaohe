@@ -1,0 +1,6 @@
+com\study\Mapper\UserMapper.class
+com\study\common\Result.class
+com\study\Controller\UserController.class
+com\study\utils\MybatisUtils.class
+com\study\pojo\User.class
+com\study\Application.class
